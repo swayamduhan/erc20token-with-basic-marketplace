@@ -4,6 +4,7 @@ require('dotenv').config();
 const FORK_FUJI = false;
 const FORK_MAINNET = false;
 let forkingData = undefined;
+const WALLET_PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY
 
 if (FORK_MAINNET) {
   forkingData = {
@@ -25,20 +26,29 @@ module.exports = {
       chainId: !forkingData ? 43112 : undefined, //Only specify a chainId if we are not forking
       forking: forkingData,
     },
-    fuji: {
-      url: "https://api.avax-test.network/ext/bc/C/rpc",
-      gasPrice: 225000000000,
-      chainId: 43113,
-      accounts: [process.env.WALLET_PRIVATE_KEY], // we use a .env file to hide our wallets private key
+    localhost : {
+      chainId : 31337,
+      url : "http://127.0.0.1:8545/"
     },
-    mainnet: {
-      url: "https://api.avax.network/ext/bc/C/rpc",
-      gasPrice: 225000000000,
-      chainId: 43114,
-      accounts: [process.env.WALLET_PRIVATE_KEY],
+    snowtrace: {      // test-net
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
+      chainId: 43113,
+      accounts: [WALLET_PRIVATE_KEY], // we use a .env file to hide our wallets private key
     },
   },
   etherscan: {
-    apiKey: process.env.SNOWTRACE_API_KEY, // we use an .env file to hide our Snowtrace API KEY
+    apiKey: {
+      snowtrace: "snowtrace", // apiKey is not required, just set a placeholder
+    },
+    customChains: [
+      {
+        network: "snowtrace",
+        chainId: 43113,
+        urls: {
+          apiURL: "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan",
+          browserURL: "https://avalanche.testnet.routescan.io"
+        }
+      }
+    ]
   },
 };
