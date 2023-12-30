@@ -8,6 +8,7 @@
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -46,6 +47,7 @@
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -83,6 +85,7 @@
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -123,6 +126,7 @@
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -158,6 +162,7 @@
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -193,6 +198,7 @@
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -230,6 +236,7 @@
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
