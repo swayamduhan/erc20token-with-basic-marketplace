@@ -23,7 +23,7 @@ The users can -
 
 ### Executing program
 
-**For ease, you can connect to this contract on Remix**
+**For ease, you can connect to this contract on Remix**  
 Steps -  
 - Compile the code on Remix or upload the ABI at Remix
 - Select the Injected Provider - Metamask option from ENVIRONMENT
