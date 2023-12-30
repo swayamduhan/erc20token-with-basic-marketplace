@@ -1,0 +1,5 @@
+console.log(allAccounts[0], allAccounts[1], allAccounts[2])
+const allAccounts = hre.ethers.getSigners()
+const accounts = hre.ethers.getSigners()
+const accounts = await ethers.getSigners()
+const ethers = require("hardhat")

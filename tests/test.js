@@ -33,6 +33,11 @@ describe("Degen Token", function(){
             await TxResponse2.wait()
         })
 
+        it("should check balance", async function(){
+            const ownerBalance = await degen.balanceOf(owner.address)
+            assert(ownerBalance, 10000)
+        })
+
         it("should burn tokens", async function(){
             const burnTxResponse = await degen.burnTokens(1000)
             await burnTxResponse.wait()
@@ -69,6 +74,4 @@ describe("Degen Token", function(){
             assert(remainingBalance, 5000)
         })
     })
-    
-    
 })
