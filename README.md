@@ -36,8 +36,8 @@ Only the `burnTokens`, `createNewItem`, `purchaseItem`, `transfer`, `addressToIt
 
 ## Authors
 
-Swayam Duhan
-[@swxyamfr on X](https://x.com/swxyamfr?s=20)
+Swayam Duhan  
+[@swxyamfr on X](https://x.com/swxyamfr?s=20)  
 @swayamwins on Discord
 
 
