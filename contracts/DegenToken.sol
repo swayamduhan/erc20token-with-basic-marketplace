@@ -13,6 +13,13 @@ contract DegenToken is ERC20, Ownable {
         uint256 price;
     }
 
+    struct ownedItems {
+        string name;
+        uint256 quantity;
+    }
+
+    mapping(address => ownedItems[]) public addressToItemsOwned;
+
     Item[] public shopItems;
     
     constructor() Ownable(msg.sender) ERC20("Degen", "DGN") {}
@@ -34,12 +41,20 @@ contract DegenToken is ERC20, Ownable {
         _burn(msg.sender, _value);
     }
 
-     function purchaseItem(uint8 _itemId, uint256 _quantity) public {
+    function purchaseItem(uint8 _itemId, uint256 _quantity) public {
         require(_itemId > 0 && _itemId <= shopItems.length, "Invalid item ID");
         uint256 totalPrice = shopItems[_itemId - 1].price * _quantity;
         require(balanceOf(_msgSender()) >= totalPrice, "Insufficient balance :(");
         _burn(_msgSender(), totalPrice);
+        ownedItems memory recentlyPurchasedItem = ownedItems(shopItems[_itemId - 1].name, _quantity);
+        addressToItemsOwned[msg.sender].push(recentlyPurchasedItem);
         emit itemPurchased(_msgSender(), _itemId, _quantity);
     }
+
+    function getItemsPurchasedByAddress(address buyer) external view returns (ownedItems[] memory) {
+        return addressToItemsOwned[buyer];
+    }
+
+    // a transfer function is already providied by openzeppelin so we dont need to make it
     
 }
